@@ -1,8 +1,9 @@
 
 const Navbar = () => {
     return (
-        <div>
-            <h1 className="font-bold text-center">Navbar title</h1>
+        <div className="flex justify-between items-center">
+            <h4 className="font-bold text-center text-4xl">Knowledge Cafe</h4>
+            <img src="../../../public/images/profile.png" alt="" />
         </div>
     );
 };
