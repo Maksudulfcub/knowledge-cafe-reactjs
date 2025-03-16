@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Blog = ({ blog, handleAddToBookmark }) => {
+const Blog = ({ blog, handleAddToBookmark, handleAddToReadingTime }) => {
 
-    const { cover, title, author, author_img, posted_date, reading_time, hashtags } = blog;
+    const { id, cover, title, author, author_img, posted_date, reading_time, hashtags } = blog;
 
     return (
         <div>
-            <div className='mb-10 lg:w-3/4 lg:p-8 p-4 justify-center rounded-xl shadow-xl hover:bg-blue-50'>
+            <div className='mb-10 lg:w-8/9 lg:p-8 p-4 justify-center rounded-xl shadow-xl hover:bg-blue-50'>
                 <img className='rounded-xl' src={cover} alt="" />
                 <div className='lg:flex justify-between mt-2'>
                     <div className='flex items-center gap-5'>
@@ -28,13 +28,13 @@ const Blog = ({ blog, handleAddToBookmark }) => {
                 <div className='flex mt-3 text-gray-500'>
                     <p>
                         {
-                            hashtags.map(tag => <span className='mr-3'>
+                            hashtags.map((tag, idx) => <span key={idx} className='mr-3'>
                                 <a>#{tag}</a>
                             </span>)
                         }
                     </p>
                 </div>
-                <button className='text-blue-700 underline font-semibold mt-3'>Mark as read</button>
+                <button onClick={() => handleAddToReadingTime(id, reading_time)} className='text-blue-700 underline font-semibold mt-3'>Mark as read</button>
             </div>
         </div>
     );
